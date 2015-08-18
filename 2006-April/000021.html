@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Winefish-devel] winefish: manpage issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/winefish-devel/2006-April/index.html" >
+   <LINK REL="made" HREF="mailto:winefish-devel%40lists.berlios.de?Subject=Re%3A%20%5BWinefish-devel%5D%20winefish%3A%20manpage%20issues&In-Reply-To=%3C1145025299.10010.41.camel%40localhost%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000020.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Winefish-devel] winefish: manpage issues</H1>
+    <B>Daniel Leidert</B> 
+    <A HREF="mailto:winefish-devel%40lists.berlios.de?Subject=Re%3A%20%5BWinefish-devel%5D%20winefish%3A%20manpage%20issues&In-Reply-To=%3C1145025299.10010.41.camel%40localhost%3E"
+       TITLE="[Winefish-devel] winefish: manpage issues">daniel.leidert.spam at gmx.net
+       </A><BR>
+    <I>Fri Apr 14 16:34:59 CEST 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000020.html">[Winefish-devel] winefish-1.3.2: patch for gtk+_2.4 users
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#21">[ date ]</a>
+              <a href="thread.html#21">[ thread ]</a>
+              <a href="subject.html#21">[ subject ]</a>
+              <a href="author.html#21">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Kyanh,
+
+I need a few information about the manpage and I found also a few
+issues. First the information I need for making the Debian package: I'm
+currently preparing an official Debian package. Therefor I must follow
+stricter rules when I write down the copyright information for the
+package. So I need to know, which copyright and license the manpage is?
+Is it copyrighted by Mich&#232;le Garoche? Is it licensed under the GPL?
+Could you please add this information at least as head-comments in the
+manpage roff source? Just add at the top:
+
+.\&quot; Author(s): Mich&#232;le Garoche (...)
+.\&quot; Copyright: Copyright (C) 2006 ...
+.\&quot;   License: ... small license info ...
+
+Then the issues I found (I've attached the patch againast 1.3.3 and the
+resulting manpage):
+
+* header information:
+- Version is already 1.3.3 - two possibilities: (a) use the date (of
+last change) instead of the version number there, which is more common
+(there you could use an SVN keyword for the date instead), or (b)
+process the file via autoconf and automatically add the real version
+number and package name (a patch can be submitted if wanted)
+- &quot;Winefish&quot; should be all-uppercase
+- instead of &quot;kyanh&quot; you should use '$PACKAGE $VERSION' (both could be
+added automatically during autoconf run)
+- this is more common usage of the headers
+
+* SYNTAX
+- wrong section title - following the man-page howto the section title
+is SYNOPSIS
+- bold/italic usage is not correct - options, commands, ... are bold;
+parameters, file-names and replaceable stuff is italic
+
+* DESCRIPTION
+- pdflatex, latex, PCRE missed manpage reference
+- mpved homepage and mailing list information here (and made them
+lickable) - see also the notes at AUTHORS
+
+* OPTIONS
+- same bold/italic &quot;issues&quot;
+- a few improvements (which IMHO look better) are possible - see the
+attached patch
+
+* FILES
+- ditto: file-names are italic elements
+
+* EXAMPLES
+- ditto - the command is bold, not the comment (only a title would be
+bold)
+
+* AUTHORS
+- small typo in Mich&#232;les name
+- small typo in &quot;It may be used by other distribution.&quot; (should be
+plural)
+- all the homepage, mailing-list and other documentation information do
+not belong to the AUTHORS section - instead put the homepage and list
+info into DESCRIPTION and other documentation belongs to SEE ALSO
+- the location for winefish.html seems incorrect, it should be
+$prefix/share/doc/winefish/winefish.html. AFAIK no packages
+documentation is directly put into $prefix/share/doc
+- $prefix could be replaced by: moving winefish.1 to winefish.1.in,
+replace '$prefix' with '@prefix@' and then process this file during
+configure run - then prefix is replaced with the real value (same can
+automatically add the PACKAGE and VERSION variable)
+
+* SEE ALSO
+- should definitely be added to reference all manpages for helper tools,
+basics for LaTeX and other documentation - the current list may be
+incomplete - to be honest: referencing makes more sense, if the command
+lines are changeable -&gt; I did _not_ test, if you hardcode the commands
+
+Regards, Daniel
+-------------- next part --------------
+.\&quot; Winefish manpage
+.\&quot;
+.\&quot; Customization by Daniel Leidert for the Debian distribution.
+.\&quot;
+.TH &quot;WINEFISH&quot; &quot;1&quot; &quot;2006-04-14&quot; &quot;winefish 1.3.3&quot; &quot;Winefish Documentation&quot;
+
+.SH &quot;NAME&quot;
+.LP 
+\fBwinefish\fR \- LaTeX editor
+
+.SH &quot;SYNOPSIS&quot;
+.LP 
+\fBwinefish [OPTION...] \fIFILENAME\fR
+
+.SH &quot;DESCRIPTION&quot;
+.LP 
+\fBwinefish\fR is a LaTeX editor based on bluefish. It features:
+.LP 
+\- autotext support
+.LP 
+\- autocompletion support
+.LP 
+\- command collector
+.LP 
+\- multiple encodings support
+.LP 
+\- custom menu to define your own tags, sets of code, and dialogs
+.LP 
+\- customizable syntax highlighting based on \fBPCRE\fR(3)
+.LP 
+\- user customizable integration of \fBlatex\fR(1), \fBpdflatex\fR(1),...
+.LP 
+\- custom search and replace pattern support for the custom menu
+.LP 
+\- wizards for startup, tables, list and others
+.TP
+\fBHomepage\fR
+\fI\%<A HREF="http://winefish.berlios.de\fR">http://winefish.berlios.de\fR</A>
+.br
+\fI\%<A HREF="http://winefish.viettug.org\fR">http://winefish.viettug.org\fR</A>
+.br
+\fI\%<A HREF="http://winefish.sourceforge.net\fR">http://winefish.sourceforge.net\fR</A>
+.TP
+\fBMailing lists\fR
+\fI\%winefish\<A HREF="https://lists.berlios.de/mailman/listinfo/winefish-devel">-devel at lists.berlios.de</A>\fR (development)
+.br
+\fI\%winefish\<A HREF="https://lists.berlios.de/mailman/listinfo/winefish-devel">-users at lists.berlios.de</A>\fR (users)
+
+.SH &quot;OPTIONS&quot;
+.PP
+\fBwinefish\fR currently supports the following options (in alphabetical
+order):
+.TP 
+\fB\-l \fILINENUMBER\fR
+Set the line number the file will be opened at.
+.TP 
+\fB\-n { \fI0\fB\ | \fI1\fB }\fR
+Open a new window (\fI1\fR) or not (\fI0\fR).
+.TP 
+\fB\-p \fIPROJECTFILE\fR
+Open the specified project file.
+.TP 
+\fB\-s\fR
+Skip root check.
+.TP 
+\fB\-h\fR
+Show this help screen.
+.TP 
+\fB\-v\fR
+Show the current version of \fBwinefish\fR.
+
+.SH &quot;FILES&quot;
+.LP 
+Some configuration files are loaded into \fI$HOME/.winefish\fR:
+.TP 
+\fI$HOME/.winefish/autotext\fR 
+Store shorcuts for text, i.e. LaTeX blocks
+.IP 
+You may edit it from the autotext panel in the preferences window
+.TP 
+\fI$HOME/.winefish/custom_menu\fR 
+Define the contents of the custom menu
+.IP 
+You may edit it from the Edit custom menu item
+.TP 
+\fI$HOME/.winefish/hightlighting\fR 
+Define the highlighting patterns for some languages
+.IP 
+You may edit it from the highlighting panel in the preferences window
+.TP 
+\fI$HOME/.winefish/rcfile\fR 
+Store most of the other settings defined in the preferences window
+.IP 
+You may modify the settings in the various panels of the preferences window
+.TP 
+\fI$HOME/.winefish/words\fR 
+Store a list of tags for autocompletion
+.IP 
+You may add tags from the autoX panel in the preferences window
+
+.SH &quot;EXAMPLES&quot;
+.TP 
+Starting \fBwinefish\fR from the command line:
+\fBwinefish\fR
+.TP 
+Opening a file foo in a new window at line 100:
+\fBwinefish \-n 1 \-l 100 \fIfoo\fR
+.TP 
+Opening a project foo in the current window:
+\fBwinefish \-n 0 \-p \fIfoo.wfproject\fR
+
+.SH &quot;SEE ALSO&quot;
+.LP
+\fBlatex\fR(1), \fBpdflatex\fR(1), \fBdvips\fR(1), \fBdvipdfm\fR(1),
+\fBxdvi\fR(1), \fBxpdf\fR(1), \fBgv\fR(1),
+\fI$prefix/share/doc/winefish/winefish.html\fR
+
+.SH &quot;AUTHORS&quot;
+.LP 
+This manual page was written by Mich&#195;&#168;le Garoche
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/winefish-devel">michele.garoche at easyconnect.fr</A>&gt; for the Fink distribution
+as the original program does not have a manual page. But it may
+be used by other distributions.
+.LP
+$LastChangedBy: kyanh $
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: winefish_man_patch.diff
+Type: text/x-patch
+Size: 4754 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060414/8bff79f9/attachment.bin">https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060414/8bff79f9/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000020.html">[Winefish-devel] winefish-1.3.2: patch for gtk+_2.4 users
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#21">[ date ]</a>
+              <a href="thread.html#21">[ thread ]</a>
+              <a href="subject.html#21">[ subject ]</a>
+              <a href="author.html#21">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/winefish-devel">More information about the Winefish-devel
+mailing list</a><br>
+</body></html>

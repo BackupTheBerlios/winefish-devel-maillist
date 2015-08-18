@@ -1,0 +1,198 @@
+From mattions at gmail.com  Wed Mar 28 21:11:32 2007
+From: mattions at gmail.com (Michele Mattioni)
+Date: Wed, 28 Mar 2007 20:11:32 +0100
+Subject: [Winefish-devel] The state of winefish and spellchecking
+Message-ID: <1175109092.5982.20.camel@localhost>
+
+Hi winefish developer,
+
+So after an exchange of e-mail with kyanh I'm writing here to the whole
+list :P
+
+First of all the spellchecker:
+
+The spellchecking right now is not really good.
+Instead of reinvent the wheel we can try to use aspell and start it in
+the "tex" mode.
+
+Searching around it seems possible to start aspell in TeX mode with this
+call:
+
+aspell_config_replace(spell_config, "mode", "tex");
+
+reference:
+http://aspell.net/man-html/Through-the-C-API.html#Through-the-C-API
+http://aspell.net/man-html/The-Options.html#The-Options
+
+The important part is at 4.2.4
+
+I've tried to patch the current code but I was really unsuccessful .
+
+I think we can drop also the support to the html stuff and normal stuff.
+winefish is really tuned for TeX stuff :P
+
+2) the code.
+
+I've tried to compile it from the svn but without any lucky. Why don't
+try to have a working code into the svn and try to go on with the
+development?
+
+I'm learning C and glib stuff, so, at same point, I hope to be useful
+and contribute.
+
+Cheers,
+Michele.
+
+
+
+From kyanh at o2.pl  Fri Mar 30 09:50:02 2007
+From: kyanh at o2.pl (kyanh)
+Date: Fri, 30 Mar 2007 14:50:02 +0700
+Subject: [Winefish-devel] The state of winefish and spellchecking
+In-Reply-To: <1175109092.5982.20.camel@localhost>
+References: <1175109092.5982.20.camel@localhost>
+Message-ID: <460CC12A.6010702@o2.pl>
+
+Hi,
+
+Michele Mattioni wrote:
+> Hi winefish developer,
+> 
+> I've tried to compile it from the svn but without any lucky. Why don't
+> try to have a working code into the svn and try to go on with the
+> development?
+> 
+
+I have a local svn repos for winefish at my home. Howto replace the 
+existing one (hosted by berlios.de) by my own one?
+
+-- kyanh
+
+
+From daniel.leidert.spam at gmx.net  Fri Mar 30 13:59:56 2007
+From: daniel.leidert.spam at gmx.net (Daniel Leidert)
+Date: Fri, 30 Mar 2007 13:59:56 +0200
+Subject: [Winefish-devel] The state of winefish and spellchecking
+In-Reply-To: <460CC12A.6010702@o2.pl>
+References: <1175109092.5982.20.camel@localhost>  <460CC12A.6010702@o2.pl>
+Message-ID: <1175255996.6695.1.camel@localhost>
+
+Am Freitag, den 30.03.2007, 14:50 +0700 schrieb kyanh:
+
+> I have a local svn repos for winefish at my home. Howto replace the 
+> existing one (hosted by berlios.de) by my own one?
+
+IMO `svn merge' or `svn dump' are, what you are looking for.
+
+Regards, Daniel
+
+
+
+From mattions at gmail.com  Fri Mar 30 18:53:15 2007
+From: mattions at gmail.com (Michele Mattioni)
+Date: Fri, 30 Mar 2007 17:53:15 +0100
+Subject: [Winefish-devel] The state of winefish and spellchecking
+In-Reply-To: <1175255996.6695.1.camel@localhost>
+References: <1175109092.5982.20.camel@localhost>  <460CC12A.6010702@o2.pl>
+	<1175255996.6695.1.camel@localhost>
+Message-ID: <1175273595.7746.31.camel@localhost>
+
+Il giorno ven, 30/03/2007 alle 13.59 +0200, Daniel Leidert ha scritto:
+> Am Freitag, den 30.03.2007, 14:50 +0700 schrieb kyanh:
+> 
+> > I have a local svn repos for winefish at my home. Howto replace the 
+> > existing one (hosted by berlios.de) by my own one?
+> 
+> IMO `svn merge' or `svn dump' are, what you are looking for.
+
+
+yes they should do the trick :)
+
+
+
+From kyanh at o2.pl  Sat Mar 31 02:07:29 2007
+From: kyanh at o2.pl (kyanh)
+Date: Sat, 31 Mar 2007 07:07:29 +0700
+Subject: [Winefish-devel] The state of winefish and spellchecking
+In-Reply-To: <1175273595.7746.31.camel@localhost>
+References: <1175109092.5982.20.camel@localhost>
+	<460CC12A.6010702@o2.pl>	<1175255996.6695.1.camel@localhost>
+	<1175273595.7746.31.camel@localhost>
+Message-ID: <460DA641.1000909@o2.pl>
+
+Hi,
+
+last night I have successfully created the new repos. for winefish. I 
+may upload it this morning (vietnam).
+
+coming soon!
+
+Michele Mattioni wrote:
+> Il giorno ven, 30/03/2007 alle 13.59 +0200, Daniel Leidert ha scritto:
+>> Am Freitag, den 30.03.2007, 14:50 +0700 schrieb kyanh:
+>>
+>>> I have a local svn repos for winefish at my home. Howto replace the 
+>>> existing one (hosted by berlios.de) by my own one?
+>> IMO `svn merge' or `svn dump' are, what you are looking for.
+> 
+> 
+> yes they should do the trick :)
+> 
+
+
+
+From kyanh at o2.pl  Sat Mar 31 17:05:37 2007
+From: kyanh at o2.pl (kyanh)
+Date: Sat, 31 Mar 2007 22:05:37 +0700
+Subject: [Winefish-devel] winefish svn repository is ready!
+Message-ID: <460E78C1.20905@o2.pl>
+
+Hi all,
+
+I am so sorry that I left winefish lonely for months. Now the winefish's 
+svn repository is now ready and I am back to develop it. You may check 
+out the repos. anonymously
+   $svn checkout svn://svn.berlios.de/winefish/trunk
+or (if you a developer)
+   $svn checkout \
+     svn+ssh://developername at svn.berlios.de/svnroot/repos/winefish/trunk
+
+The current version is 1.4.0.1. I tried to implement some functions and 
+a better way to handle key shortcuts. Please read and copy 
+<trunk>/doc/keymap to your ~/.winefish/ !
+
+-- kyanh
+
+
+From mattions at gmail.com  Sat Mar 31 18:29:43 2007
+From: mattions at gmail.com (Michele Mattioni)
+Date: Sat, 31 Mar 2007 17:29:43 +0100
+Subject: [Winefish-devel] winefish svn repository is ready!
+In-Reply-To: <460E78C1.20905@o2.pl>
+References: <460E78C1.20905@o2.pl>
+Message-ID: <1175358583.1373.18.camel@localhost>
+
+Il giorno sab, 31/03/2007 alle 22.05 +0700, kyanh ha scritto:
+> Hi all,
+> 
+> I am so sorry that I left winefish lonely for months. Now the winefish's 
+> svn repository is now ready and I am back to develop it. You may check 
+> out the repos. anonymously
+>    $svn checkout svn://svn.berlios.de/winefish/trunk
+> or (if you a developer)
+>    $svn checkout \
+>      svn+ssh://developername at svn.berlios.de/svnroot/repos/winefish/trunk
+> 
+> The current version is 1.4.0.1. I tried to implement some functions and 
+> a better way to handle key shortcuts. Please read and copy 
+> <trunk>/doc/keymap to your ~/.winefish/ !
+
+
+Check out and compiled 
+thanks :P
+
+Cheers,
+Michele.
+
+
+

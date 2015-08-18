@@ -1,0 +1,611 @@
+From michele.garoche at easyconnect.fr  Tue Feb  7 01:12:53 2006
+From: michele.garoche at easyconnect.fr (=?ISO-8859-1?Q?Mich=E8le_Garoche?=)
+Date: Tue, 7 Feb 2006 01:12:53 +0100
+Subject: [Winefish-devel] Winefish 1.3.2.6(b) released
+In-Reply-To: <20060126144314.2AFAC4BE3B@rekin16.go2.pl>
+References: <20060126144314.2AFAC4BE3B@rekin16.go2.pl>
+Message-ID: <2602D101-1C11-4843-9467-38BD5B2D4982@easyconnect.fr>
+
+Hi Kianh,
+
+
+Le 26 janv. 2006 ? 15:43, kyanh at o2.pl a ?crit :
+
+> Hi all,
+>
+> Winefish 1.3.2.6(b) released.
+
+I've ported winefish to fink and there are some needed changes.
+
+Attached is a diff against the 1.3.2.6f release.
+
+It comprises:
+
+1 - Addition of a man page and related changes in configure.ac and  
+Makefiles
+2 -  Installation of the html and txt files as doc
+3 - Integration of po French translation (still needs to be put in  
+about.c)
+4 - Modification of the check for aspell (did not find the right  
+headers)
+5 - Addition of a winefish-project-desktop file
+6 - Translation of desktop files
+7 - Changes in calculation of size of files and restrict  
+POSIX_C_SOURCE to solaris in document.c
+8 - Addition of a NULL argument in wizards.c
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: winefish.diff.gz
+Type: application/x-gzip
+Size: 22026 bytes
+Desc: not available
+URL: <https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060207/8a3b7228/attachment.bin>
+-------------- next part --------------
+
+Next, I'll fill bugs. There are a number of issues at the moment  
+which impede correct running on Mac.
+
+Cheers,
+Mich?le
+<http://micmacfr.homeunix.org>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 36C471DED4B09EEB30A0281F2608DB2FE6F9E147.gpgkey
+Type: application/octet-stream
+Size: 1744 bytes
+Desc: not available
+URL: <https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060207/8a3b7228/attachment.obj>
+-------------- next part --------------
+
+
+
+From kyanh at o2.pl  Thu Feb  9 03:42:13 2006
+From: kyanh at o2.pl (kyanh at o2.pl)
+Date: Thu, 09 Feb 2006 03:42:13 +0100
+Subject: [Winefish-devel] =?iso-8859-2?Q?Winefish_1.3.2.6(g)?=
+Message-ID: <20060209024213.613E098041@rekin18.go2.pl>
+
+Hi all,
+
+M. Garoche wrote:
+> Hello Kianh,
+> I sent you a patch for winefish 1.3.2.6(f)
+> on the winefish-devel mailing list.
+> Did you receive it?
+
+I received the  patch yesterday and I have successfull patched it.
+Now  there's Winefish 1.3.2.6(g) that you may download here
+http://download.berlios.de/winefish/winefish-1.3.2.6g.tgz
+
+( with some small bugs fixed (included the one reported by M.
+Garoche), and a better brace finder (select the brace if found) )
+
+Please update the po files.
+* There are some fuzzy strings in `it.po'.
+* For the `fr.po': could M. Garoche fix a string in about.c? (I use
+`francaise' for French, but it should be `francais' ;))
+
+I have been back to my studies. Now i am very busy. So winefish
+1.3.2.6g is the last one before 1.3.2.6. After receiving your
+updated po files, i will announce 1.3.2.6 ;) That is the spring
+release. Please wait for Summer releases for more features ;)
+
+I am sorry for late reply. 
+
+Thank you very much for translation.
+
+Thank M. Garoche very much for the patches.
+
+Regards,
+
+kyanh
+
+
+
+From kyanh at o2.pl  Thu Feb  9 03:58:34 2006
+From: kyanh at o2.pl (kyanh at o2.pl)
+Date: Thu, 09 Feb 2006 03:58:34 +0100
+Subject: [Winefish-devel] =?iso-8859-2?Q?Howto_handle_Invalid_UTF-8_string=3F?=
+Message-ID: <20060209025834.D254598083@rekin18.go2.pl>
+
+Hi all,
+
+
+From cpolegatojr_lsts at pop.com.br  Thu Feb  9 10:49:33 2006
+From: cpolegatojr_lsts at pop.com.br (Claudio Polegato Junior)
+Date: Thu, 09 Feb 2006 09:49:33 +0000
+Subject: [Winefish-devel] Re: Howto handle Invalid UTF-8 string?
+In-Reply-To: <20060209025834.D254598083@rekin18.go2.pl>
+References: <20060209025834.D254598083@rekin18.go2.pl>
+Message-ID: <43EB102D.2050903@pop.com.br>
+
+kyanh at o2.pl escreveu:
+> Hi all,
+> >From my program (winefish), some child processes are called and
+> theirs output will be captured. The IO_channel was used for this
+> purpose.
+> The problem is that some children may procedure invalid UTF8 strings
+> (for example, when LANG=fr_FR and `cat' returns 1 (file not found)).
+> This causes empty output in gtk_tree_view!!  ( I tried to use NULL
+> encoding (for IO_channel) but failed )
+>
+> Question: how to handle invalid UTF8 string?
+>   
+Hi,
+
+You can throw g_locale_conv* and by iconv command line.
+
+-- 
+
+[]'s
+
+Claudio Polegato Junior
+
+Um peregrino de Problemas; Um pergaminho de Solu??es.
+
+
+
+From michele.garoche at easyconnect.fr  Sat Feb 11 09:21:53 2006
+From: michele.garoche at easyconnect.fr (=?ISO-8859-1?Q?Mich=E8le_Garoche?=)
+Date: Sat, 11 Feb 2006 09:21:53 +0100
+Subject: [Winefish-devel] Winefish 1.3.2.6(g)
+In-Reply-To: <20060209024213.613E098041@rekin18.go2.pl>
+References: <20060209024213.613E098041@rekin18.go2.pl>
+Message-ID: <911613F8-C026-46E3-97AF-5087F2D46A69@easyconnect.fr>
+
+Hello Kyanh,
+
+
+Le 9 f?vr. 2006 ? 03:42, kyanh at o2.pl a ?crit :
+
+> I received the  patch yesterday and I have successfull patched it.
+> Now  there's Winefish 1.3.2.6(g) that you may download here
+> http://download.berlios.de/winefish/winefish-1.3.2.6g.tgz
+I've tried to download the new release, but there is no way to access  
+http://download.berlios.de/winefish/ site.
+
+Could you please post it elsewhere or see what is wrong with it?
+
+Cheers,
+Mich?le
+<http://micmacfr.homeunix.org>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 36C471DED4B09EEB30A0281F2608DB2FE6F9E147.gpgkey
+Type: application/octet-stream
+Size: 1744 bytes
+Desc: not available
+URL: <https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060211/2ca997a1/attachment.obj>
+-------------- next part --------------
+
+
+
+From michele.garoche at easyconnect.fr  Mon Feb 13 19:12:37 2006
+From: michele.garoche at easyconnect.fr (=?ISO-8859-1?Q?Mich=E8le_Garoche?=)
+Date: Mon, 13 Feb 2006 19:12:37 +0100
+Subject: [Winefish-devel] Re: Winefish 1.3.2.6(g)
+In-Reply-To: <20060209024213.613E098041@rekin18.go2.pl>
+References: <20060209024213.613E098041@rekin18.go2.pl>
+Message-ID: <C35C7C50-E26B-4688-8028-64D5A600CCC8@easyconnect.fr>
+
+
+Le 9 f?vr. 2006 ? 03:42, kyanh at o2.pl a ?crit :
+
+> Now  there's Winefish 1.3.2.6(g) that you may download here
+> http://download.berlios.de/winefish/winefish-1.3.2.6g.tgz
+>
+After much delay, due to long berlioz ftp access down, I've  
+successfully downloaded winefish-1.3.2.6g.tgz today.
+
+I've filled in three bugs reports on berlioz. Please, have a look at  
+them.
+
+Then concerning the fr.po file, you should not change the copyright,  
+it is copyrighted the translator, then the Free Software Foundation,  
+which is sufficient to ensure that the file pertains to winefish, and  
+could be transferred to any subsequent translator. Even less the  
+language, the last translator, the language team.
+
+Here is the new one, compressed.
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: fr.po.tgz
+Type: application/octet-stream
+Size: 17482 bytes
+Desc: not available
+URL: <https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060213/6f3c2d6d/attachment.obj>
+-------------- next part --------------
+
+Then I wonder the utility of the svn access, since it does not  
+reflect the last state of winefish. Could you work on it, so that we  
+can ensure we work on the same source code?
+
+
+Cheers,
+Mich?le
+<http://micmacfr.homeunix.org>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 36C471DED4B09EEB30A0281F2608DB2FE6F9E147.gpgkey
+Type: application/octet-stream
+Size: 1744 bytes
+Desc: not available
+URL: <https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060213/6f3c2d6d/attachment-0001.obj>
+-------------- next part --------------
+
+
+
+From kyanh at o2.pl  Tue Feb 14 04:12:18 2006
+From: kyanh at o2.pl (kyanh)
+Date: Tue, 14 Feb 2006 10:12:18 +0700
+Subject: [Winefish-devel] Winefish-1.3.2-RC1
+Message-ID: <200602141012.18593.kyanh@o2.pl>
+
+hi all,
+
+Brace Finder (the most important feature of 1.3.2) is improved since 1.3.2.6 
+and now starts its job automatically.
+
+Download here:
+http://download.berlios.de/winefish/winefish-1.3.2-RC1.tgz
+http://download.berlios.de/winefish/winefish-1.3.2-RC1.tgz.md5sum
+
+Thank you for trying winefish.
+
+Regards,
+
+kyanh
+
+PS:
+Changes (1.3.2.6)
+1.3.2.6
+* BUGs fixed
+* Template Manager Support
+* Full Feature Brace Finder
+* Documetation Updated
+* Local Support: French, Italian, Vietnamese
+* Outputbox with clone-operation
+* TeX filter for spell checker
+* Improvement...
+
+
+From michele.garoche at easyconnect.fr  Tue Feb 14 09:33:27 2006
+From: michele.garoche at easyconnect.fr (=?ISO-8859-1?Q?Mich=E8le_Garoche?=)
+Date: Tue, 14 Feb 2006 09:33:27 +0100
+Subject: [Winefish-devel] Re: Winefish 1.3.2.6(g)
+In-Reply-To: <200602140917.23072.kyanh@o2.pl>
+References: <20060209024213.613E098041@rekin18.go2.pl> <C35C7C50-E26B-4688-8028-64D5A600CCC8@easyconnect.fr> <200602140917.23072.kyanh@o2.pl>
+Message-ID: <E4A63B33-3CF3-4410-8BB7-E5F57A5DA63E@easyconnect.fr>
+
+
+Le 14 f?vr. 2006 ? 03:17, kyanh a ?crit :
+
+> On Tuesday 14 February 2006 01:12, you wrote:
+>> Le 9 f?vr. 2006 ? 03:42, kyanh at o2.pl a ?crit :
+>>> Now  there's Winefish 1.3.2.6(g) that you may download here
+>>> http://download.berlios.de/winefish/winefish-1.3.2.6g.tgz
+>>
+>> After much delay, due to long berlioz ftp access down, I've
+>> successfully downloaded winefish-1.3.2.6g.tgz today.
+>>
+>> I've filled in three bugs reports on berlioz. Please, have a look at
+>> them.
+> Thank you very much. I cannot repeat the bug which relates to  
+> project file.
+Answer in berlioz bugs.
+
+> For the Template, see Menu Edit/Find, Replace/Templates.
+Oh, yes, sorry, forgot that. I'll add a note in Fink for accelerate  
+keys to be changed.
+
+
+> I update this in
+> documentation. For the last one (brace finder) there may be a bug.  
+> But the
+> finder was almost reimplemented. Winefish 1.3.2-RC1 will be  
+> released soon.
+>>
+>> Then concerning the fr.po file, you should not change the copyright,
+>> it is copyrighted the translator, then the Free Software Foundation,
+>> which is sufficient to ensure that the file pertains to winefish, and
+>> could be transferred to any subsequent translator. Even less the
+>> language, the last translator, the language team.
+>>
+> I am so sorry about that. I have opened it kbabel to check for  
+> fuzzy messages.
+> May kbabel change it?
+Yes, that's the problem; kbabel is not good for it, it is good for  
+the translator to update his own po file, not for the programmer to  
+update the whole translation tree;
+Use gettext to do this. Then you could check if there is any fuzzy  
+message or untranslated one. Update your own translation, but not the  
+other ones. Send the new generated po files to the translators, they  
+will translate them if needed or not, that's up to them.
+For this to work the cvs or svn tree or a snapshoot corresponding to  
+the pre-release should be available to all translators.
+Personnally I don't need any po file, I know how to generate them and  
+update them, what I need is either a working svn/cvs tree or the  
+latest pre-release snapshot, because I will also be the Fink's  
+maintainer of the package, then I should be able to dive into the  
+code if needed.
+
+Here's the shell script I use to update the pot file and generate new  
+po files (that's for fr, but you could easily transform it for all po  
+files). It is the exact mirror of what happened when you compile the  
+package.
+
+Assuming the code tree is located under $HOME and whole code is  
+under, say winefish-1.3.2.6, it becomes:
+
+#! /bin/sh -ev
+cd ${HOME}/winefish-1.3.2.6/po
+xgettext --from-code=UTF-8 --default-domain=winefish --keyword=_ -- 
+keyword=N_ ../src/*.c
+echo "updating fr.po"
+msgmerge -v -o fr-patched.po fr.po winefish.po
+
+Put it in  a text file, give it executable permissions and run it, it  
+will generate a new pot file under po/winefish.po and update the  
+French po file under fr-patched.po according to the change in the  
+tree. If the message in the terminal is ok, that is no fuzzy, no  
+untranslated, you can safely delete it. If not delete the old one  
+(fr.po) and rename fr-patched.po to fr.po.
+
+The below version is for all po files, but is more radical in that  
+sense that it renames also the po files on the fly. I find it less  
+convenient some time:
+
+#! /bin/sh -ev
+cd ${HOME}/bluefishcvs/winefish-1.3.2.6/po
+
+echo "updating pot file"
+xgettext --from-code=UTF-8 --default-domain=winefish --keyword=_ -- 
+keyword=N_ ../src/*.c
+
+echo "updating po files"
+for x in `ls *.po`; do
+echo "==========="
+echo "updating $x"
+y=`basename $x .po`
+if [ $x != "winefish.po" ]
+then
+msgmerge -v -o $y-patched.po $x winefish.po
+else
+echo "Nothing to do"
+fi
+done
+
+echo "renaming new po files"
+for x in `ls *-patched.po`; do
+echo "==========="
+echo "renaming $x"
+mv $x `echo $x | sed -e "s/-patched//"`
+done
+
+And generally speaking, when updating the po file, the translator  
+should change the PO-Revision-Date (not forgetting to change the  
+summer/winter delay if appropriate), and Project-Id-Version (it  
+should be normally nameoftheproject-versionnumberoftherelease). It is  
+a good way to be sure the file is uptodate and matches the release  
+version.
+
+
+> Anyway, i use the new one...
+By the way, you've done the same for it.po. I've taken the liberty to  
+update it (changing a bit the headers to reflect the real situation)  
+and changing the string for French translator (should be ok, at least  
+if my Italian studies' memory is not treacherous).
+
+Hope Daniele does not mind.
+
+>
+>> Then I wonder the utility of the svn access, since it does not
+>> reflect the last state of winefish. Could you work on it, so that we
+>> can ensure we work on the same source code?
+>
+> I have to work offline. I have no  line here event in a modern  
+> city. I moved
+> the svn root to my local computer. I rarely connect to internet  
+> using my
+> desktnote. (About once a week.) So let svn access overthere die;(
+Oh, that is sad. Well, as long as you could put say once a week, a  
+new snapshot, I think it will be workeable.
+
+I've also corrected misspelling in doc and changed some parts related  
+to the way to change autotext and words. Hope you will not drop the  
+autoX panel in preferences, since it is a very good way to modify  
+parts without having to relaunch winefish.
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: doc.patch.tgz
+Type: application/octet-stream
+Size: 1548 bytes
+Desc: not available
+URL: <https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060214/7074b741/attachment.obj>
+-------------- next part --------------
+
+By the way, I'm unable to produce the html file from the Makefile.  
+TIPS should be also reflect the changes for autotext and words parts.
+
+Now, I will test the new version. Hopefully I can do it fully this  
+morning, as I'll not be at home this afternoon (St Valentine's day by  
+us :-).
+
+Amicalement,
+Mich?le
+<http://micmacfr.homeunix.org>
+
+
+
+
+From michele.garoche at easyconnect.fr  Tue Feb 14 10:13:37 2006
+From: michele.garoche at easyconnect.fr (=?ISO-8859-1?Q?Mich=E8le_Garoche?=)
+Date: Tue, 14 Feb 2006 10:13:37 +0100
+Subject: [Winefish-devel] Re: Winefish 1.3.2.6(g)
+In-Reply-To: <1139907211.17640.3.camel@localhost.localdomain>
+References: <20060209024213.613E098041@rekin18.go2.pl> <C35C7C50-E26B-4688-8028-64D5A600CCC8@easyconnect.fr> <200602140917.23072.kyanh@o2.pl> <E4A63B33-3CF3-4410-8BB7-E5F57A5DA63E@easyconnect.fr> <1139907211.17640.3.camel@localhost.localdomain>
+Message-ID: <33BFC7DE-78B6-430C-BA25-C0305B68ABDA@easyconnect.fr>
+
+Ciao Daniele,
+
+Le 14 f?vr. 2006 ? 09:53, Daniele Medri a ?crit :
+
+> Ciao Mich?le,
+>
+> I am not sure about the thread, but..
+>
+>>> Anyway, i use the new one...
+>> By the way, you've done the same for it.po. I've taken the liberty to
+>> update it (changing a bit the headers to reflect the real situation)
+>> and changing the string for French translator (should be ok, at least
+>> if my Italian studies' memory is not treacherous).
+>>
+>> Hope Daniele does not mind.
+>
+> you mean the "last translator" info in *.po files' header?
+Oops, sorry, I forgot to attach the it.po file, this way you can see  
+what I mean.
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: it.po.tgz
+Type: application/octet-stream
+Size: 15770 bytes
+Desc: not available
+URL: <https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060214/b516b7a0/attachment.obj>
+-------------- next part --------------
+
+I'll guess this is not a drama if kbabel generates another header, I  
+mean the first three lines, but it should not changes the part with  
+Last-Translator etc...
+
+> Cheers
+>
+> ps: a french and an italian guy that talk in english could be a  
+> joke :)
+E che dire se il ragazzo ? una ragazza :-)
+
+Cheers,
+Mich?le
+<http://micmacfr.homeunix.org>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 36C471DED4B09EEB30A0281F2608DB2FE6F9E147.gpgkey
+Type: application/octet-stream
+Size: 1744 bytes
+Desc: not available
+URL: <https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060214/b516b7a0/attachment-0001.obj>
+-------------- next part --------------
+
+
+
+From michele.garoche at easyconnect.fr  Tue Feb 14 11:21:11 2006
+From: michele.garoche at easyconnect.fr (=?ISO-8859-1?Q?Mich=E8le_Garoche?=)
+Date: Tue, 14 Feb 2006 11:21:11 +0100
+Subject: [Winefish-devel] Winefish-1.3.2-RC1
+In-Reply-To: <200602141012.18593.kyanh@o2.pl>
+References: <200602141012.18593.kyanh@o2.pl>
+Message-ID: <32904DD4-D2F8-4212-9A5E-628DB548433C@easyconnect.fr>
+
+
+Le 14 f?vr. 2006 ? 04:12, kyanh a ?crit :
+
+> hi all,
+>
+> Brace Finder (the most important feature of 1.3.2) is improved  
+> since 1.3.2.6
+> and now starts its job automatically.
+Much much better; works really fine.
+
+>
+> Download here:
+> http://download.berlios.de/winefish/winefish-1.3.2-RC1.tgz
+> http://download.berlios.de/winefish/winefish-1.3.2-RC1.tgz.md5sum
+>
+> Thank you for trying winefish.
+So apart the highly critical bug about project saving and closing, it  
+seems to work fine.
+
+Hopefully you'll find a fix for it, as I cannot put in Fink as is,  
+and I'm sure many people will be interested in it, as it is much more  
+easy to use as other tex editors, but well just my opinion :-)
+
+
+Cheers,
+Mich?le
+<http://micmacfr.homeunix.org>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 36C471DED4B09EEB30A0281F2608DB2FE6F9E147.gpgkey
+Type: application/octet-stream
+Size: 1744 bytes
+Desc: not available
+URL: <https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060214/0db438f4/attachment.obj>
+-------------- next part --------------
+
+
+
+From michele.garoche at easyconnect.fr  Wed Feb 15 11:20:04 2006
+From: michele.garoche at easyconnect.fr (=?ISO-8859-1?Q?Mich=E8le_Garoche?=)
+Date: Wed, 15 Feb 2006 11:20:04 +0100
+Subject: [Winefish-devel] Re: Winefish 1.3.2.6(g)
+In-Reply-To: <200602151517.36792.kyanh@o2.pl>
+References: <20060209024213.613E098041@rekin18.go2.pl> <200602140917.23072.kyanh@o2.pl> <E4A63B33-3CF3-4410-8BB7-E5F57A5DA63E@easyconnect.fr> <200602151517.36792.kyanh@o2.pl>
+Message-ID: <B518F6BC-B1EA-4E75-9AA8-C931461D5789@easyconnect.fr>
+
+
+Le 15 f?vr. 2006 ? 09:17, kyanh a ?crit :
+
+>> Oh, that is sad. Well, as long as you could put say once a week, a
+>> new snapshot, I think it will be workeable.
+>>
+> Once as week...? this is almost useless. I used `winefish-devel'  
+> instead!
+Well, that's the same for me. This way I can tell you immediately if  
+there are some glitches on the Mac.
+
+>> Hope you will not drop the
+>> autoX panel in preferences, since it is a very good way to modify
+>> parts without having to relaunch winefish.
+>
+> For
+> AutoX: the 'autocopletion' page may be dropped. as winefish  
+> collects commands
+> automatically when you're editing. moreover now you can `delete'  
+> any word
+> directly from popup menu.
+I mean add them. That's for users as me who don't know perfectly tex.
+
+> So the page is almost useless (since its life till
+> now i have never used it to add/remove any words;))
+Well, I understand that, but you're not alone to use your software,  
+so it maybe useful to others. I do it, and I know others will do it  
+too. Say you have something a bit complicated, you can copy it from  
+some tex file, then use it in another one. That's just for avoiding  
+to desesperately type a false tex command, then as you say, one it is  
+typed it is collected. The first one does not impede the second one.
+
+
+Cheers,
+Mich?le
+<http://micmacfr.homeunix.org>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 36C471DED4B09EEB30A0281F2608DB2FE6F9E147.gpgkey
+Type: application/octet-stream
+Size: 1744 bytes
+Desc: not available
+URL: <https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060215/ce819057/attachment.obj>
+-------------- next part --------------
+
+
+

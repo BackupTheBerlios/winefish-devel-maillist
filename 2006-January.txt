@@ -1,0 +1,105 @@
+From kyanh at o2.pl  Thu Jan  5 14:11:04 2006
+From: kyanh at o2.pl (kyanh at o2.pl)
+Date: Thu, 05 Jan 2006 14:11:04 +0100
+Subject: [Winefish-devel] =?iso-8859-2?Q?remove_HTML_toolbars?=
+Message-ID: <20060105131104.F290F6AC0D0@rekin21.go2.pl>
+
+Hi all,
+
+last 4 months i had to study hard
+so I had notime for Winefish.
+
+I am going to a "ONE" free-month for coding
+before continueing my 2nd term;(
+
+I am going to remove HTML toolbar from Winefish:
+I have never used it ;) Please comment this idea.
+
+Below some things I will do:
+
+* fix output box and bugs reported at:
+http://developer.berlios.de/bugs/?group_id=4105
+* drop HTML toolbar (above)
+* remove some item from Edit Menu
+(\textit,\texbf, some ams environments)
+* add some function to delete words from PopUP menu
+* etc.
+
+Feel free to comment.
+
+Thank you very much for enjoy Winefish.
+
+Best regards,
+
+kyanh
+
+
+PS: i may be late in replying!
+
+
+
+
+
+From kyanh at o2.pl  Thu Jan 26 15:43:14 2006
+From: kyanh at o2.pl (kyanh at o2.pl)
+Date: Thu, 26 Jan 2006 15:43:14 +0100
+Subject: [Winefish-devel] =?iso-8859-2?Q?Winefish_1.3.2.6(b)_released?=
+Message-ID: <20060126144314.2AFAC4BE3B@rekin16.go2.pl>
+
+Hi all,
+
+Winefish 1.3.2.6(b) released.
+
+Download:
+http://developer.berlios.de/project/showfiles.php?group_id=4105&release_id=8823
+
+Feel free to test and update the PO files.
+
+Thank you very much.
+
+Regards,
+
+kyanh at viettug.org
+
+Changes:
+* important changes:
+- requires  libgtk+-2.0 version >= 2.4
+* for users of previous version:
+- move ~/.winefish/rcfile_v2 to ~/.winefish/.rcfile
+- reset the last variable (Save, Show)
+for tool (Preferences Page / TeXbox)
+
+* fixed BUG#{3,10,67,69,70,71,5689,5869,5990}
+
+* new features:
+- delete command *directly* from popup menu (autocompletion)
+- 'project mode' (external menu)
+value is saved automatically
+- added popup menu for outputbox
+(copy message from current line)
+- TeX filter for spell checker
+- find in files (menu = edit/find,
+replace/find in files) (requires `find', `grep')
+- documentation: ./doc/winefish.{html,txt}
+
+* improved:
+- outputbox's frontend/backend
+(backend: require gtk+-2.4; base on bluefish#20060119)
+- quicklist/table wizard
+(* print row/column index; * added ding(auto)list *)
+- menu items reordered (better???)
+
+* dropped:
+- toolbars (i have never used it)
+- context support (--with-context)
+- vntex support (--with-vntex)
+- vietnamese documentation
+- many images and stock items
+- many items from `insert' menu
+
+* stuffs:
+- added Menu External/Soft Clean
+
+
+
+

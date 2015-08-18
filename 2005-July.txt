@@ -1,0 +1,29 @@
+From kyanh at o2.pl  Wed Jul  6 05:39:31 2005
+From: kyanh at o2.pl (kyanh)
+Date: Wed, 6 Jul 2005 10:39:31 +0700
+Subject: [Winefish-devel] Winefish-1.3.2-3 released
+Message-ID: <200507061039.32449.kyanh@o2.pl>
+
+ This is a development release.
+
+Download:
+* ftp://ftp.berlios.de/pub/winefish/
+* ftp://ftp.berlios.de/pub/winefish/winefish-1.3.2-3.tar.gz
+
+CHANGES:
+* Major BUGS (outputbox) fixed
+* Minor BUGS fixed
+* Menu added: /External/Stop [ to cancel a tool ]
+* Autocompletion improved
+* Hilight the outputbox
+* Main menu: reordered
+* Translation completed: Vietnamese
+
+Feel free to test and feedback.
+
+Thank you very much!
+
+-- 
+kyanh [ http://kyanh.dotgeek.org/ ]
+
+

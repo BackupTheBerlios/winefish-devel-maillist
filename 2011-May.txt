@@ -1,0 +1,266 @@
+From mattions at gmail.com  Thu May 26 01:03:54 2011
+From: mattions at gmail.com (Michele Mattioni)
+Date: Thu, 26 May 2011 00:03:54 +0100
+Subject: [Winefish-devel] Winefish
+In-Reply-To: <3ed1467c587.7e63f13c@smtp.web.de>
+References: <3ed1467c587.7e63f13c@smtp.web.de>
+Message-ID: <BANLkTimWFqjk699zv7UQb7NMyO5JFHcWdg@mail.gmail.com>
+
+Hi there,
+
+I'm trying to forward this to the ML and get the original developer in the loop.
+
+>From my part there is no stop-holder into do it, but as I said I'm not
+the original developer. Actually I helped somehow a bit, but Anh wrote
+all the code and was the main driver of it.
+
+I think if you have the man-power and time to integrate the original
+winefish code in the new bluefish release (or port the specific LaTeX
+code) this would be amazing.
+
+I've proxied this request to the original developer (the only mail
+I've got I guess) and to the Winefish-ML, just to try to see if there
+is any interest.
+
+Best,
+Michele
+
+
+
+On Wed, May 25, 2011 at 10:41 PM, Markus Lunk <mlunk at web.de> wrote:
+> Ciao Michele,
+>
+> I stumbled over Bluefish again with a reference to Winefish. Sadly, Winefish
+> isn't actively developed anymore. As you seem to be the only remaining
+> developer, what do you think of integrating Winefish into Bluefish?
+> Bluefish with TeX - that would be it. That way, Winefish could benefit by
+> any changes that Bluefish gets plus there was an integrated TeX editor. You
+> may also attract more developers to contribute to the project than for a
+> five year dead project.
+>
+> --
+> Sch?ne Gr??e,
+>
+> Markus Lunk ? ?##mailto:mlunk at web.de##
+>
+> (ale rektzschraibfela wurtn nachtrehglich unt mit apsichd aingfuhkt)
+>
+> <sb>
+>
+> Kommen kleine Leute nach der Steuererh?hung noch ans Lenkrad?
+>
+>
+
+
+From xkyanh at gmail.com  Fri May 27 07:19:41 2011
+From: xkyanh at gmail.com (Anh K. Huynh)
+Date: Fri, 27 May 2011 12:19:41 +0700
+Subject: [Winefish-devel] Winefish
+In-Reply-To: <BANLkTimWFqjk699zv7UQb7NMyO5JFHcWdg@mail.gmail.com>
+References: <3ed1467c587.7e63f13c@smtp.web.de>
+	<BANLkTimWFqjk699zv7UQb7NMyO5JFHcWdg@mail.gmail.com>
+Message-ID: <20110527121941.1554d9af@gmail.com>
+
+Hello,
+
+On Thu, 26 May 2011 00:03:54 +0100
+Michele Mattioni <mattions at gmail.com> wrote:
+
+> ...
+> 
+> I think if you have the man-power and time to integrate the original
+> winefish code in the new bluefish release (or port the specific
+> LaTeX code) this would be amazing.
+> 
+> I've proxied this request to the original developer (the only mail
+> I've got I guess) and to the Winefish-ML, just to try to see if
+> there is any interest.
+
+I am very glad when receiving your email. I am at the office; I will reply with more details tonight (Vietnamese time.)
+
+Best regards,
+
+
+> 
+> On Wed, May 25, 2011 at 10:41 PM, Markus Lunk <mlunk at web.de> wrote:
+> > Ciao Michele,
+> >
+> > I stumbled over Bluefish again with a reference to Winefish.
+> > Sadly, Winefish isn't actively developed anymore. As you seem to
+> > be the only remaining developer, what do you think of integrating
+> > Winefish into Bluefish? Bluefish with TeX - that would be it.
+> > That way, Winefish could benefit by any changes that Bluefish
+> > gets plus there was an integrated TeX editor. You may also
+> > attract more developers to contribute to the project than for a
+> > five year dead project.
+> >
+> > --
+> > Sch?ne Gr??e,
+> >
+> > Markus Lunk ? ?##mailto:mlunk at web.de##
+> >
+> > (ale rektzschraibfela wurtn nachtrehglich unt mit apsichd
+> > aingfuhkt)
+> >
+> > <sb>
+> >
+> > Kommen kleine Leute nach der Steuererh?hung noch ans Lenkrad?
+> >
+> >
+> 
+
+
+--
+Anh Ky Huynh @ ICT
+Registered Linux User #392115
+
+
+From mattions at gmail.com  Fri May 27 13:03:53 2011
+From: mattions at gmail.com (Michele Mattioni)
+Date: Fri, 27 May 2011 12:03:53 +0100
+Subject: [Winefish-devel] Winefish
+In-Reply-To: <20110527121941.1554d9af@gmail.com>
+References: <3ed1467c587.7e63f13c@smtp.web.de>
+	<BANLkTimWFqjk699zv7UQb7NMyO5JFHcWdg@mail.gmail.com>
+	<20110527121941.1554d9af@gmail.com>
+Message-ID: <BANLkTi=s15SVQTnHLdHMYxzgebwOGnua2Q@mail.gmail.com>
+
+Awesome,
+
+just want to add in the loop Vojta, which designed this splash for
+winefish and offered it a bunch of weeks ago.
+
+Is attached.
+
+Best,
+Michele.
+
+
+On Fri, May 27, 2011 at 6:19 AM, Anh K. Huynh <xkyanh at gmail.com> wrote:
+> Hello,
+>
+> On Thu, 26 May 2011 00:03:54 +0100
+> Michele Mattioni <mattions at gmail.com> wrote:
+>
+>> ...
+>>
+>> I think if you have the man-power and time to integrate the original
+>> winefish code in the new bluefish release (or port the specific
+>> LaTeX code) this would be amazing.
+>>
+>> I've proxied this request to the original developer (the only mail
+>> I've got I guess) and to the Winefish-ML, just to try to see if
+>> there is any interest.
+>
+> I am very glad when receiving your email. I am at the office; I will reply with more details tonight (Vietnamese time.)
+>
+> Best regards,
+>
+>
+>>
+>> On Wed, May 25, 2011 at 10:41 PM, Markus Lunk <mlunk at web.de> wrote:
+>> > Ciao Michele,
+>> >
+>> > I stumbled over Bluefish again with a reference to Winefish.
+>> > Sadly, Winefish isn't actively developed anymore. As you seem to
+>> > be the only remaining developer, what do you think of integrating
+>> > Winefish into Bluefish? Bluefish with TeX - that would be it.
+>> > That way, Winefish could benefit by any changes that Bluefish
+>> > gets plus there was an integrated TeX editor. You may also
+>> > attract more developers to contribute to the project than for a
+>> > five year dead project.
+>> >
+>> > --
+>> > Sch?ne Gr??e,
+>> >
+>> > Markus Lunk ? ?##mailto:mlunk at web.de##
+>> >
+>> > (ale rektzschraibfela wurtn nachtrehglich unt mit apsichd
+>> > aingfuhkt)
+>> >
+>> > <sb>
+>> >
+>> > Kommen kleine Leute nach der Steuererh?hung noch ans Lenkrad?
+>> >
+>> >
+>>
+>
+>
+> --
+> Anh Ky Huynh @ ICT
+> Registered Linux User #392115
+>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: winefish_splash.png
+Type: image/png
+Size: 60627 bytes
+Desc: not available
+URL: <https://lists.berlios.de/mailman/private/winefish-devel/attachments/20110527/27f32b25/attachment.png>
+
+From kyanh at viettug.org  Sat May 28 17:51:20 2011
+From: kyanh at viettug.org (Anh K. Huynh)
+Date: Sat, 28 May 2011 22:51:20 +0700
+Subject: [Winefish-devel] Winefish
+In-Reply-To: <BANLkTi=s15SVQTnHLdHMYxzgebwOGnua2Q@mail.gmail.com>
+References: <3ed1467c587.7e63f13c@smtp.web.de>
+	<BANLkTimWFqjk699zv7UQb7NMyO5JFHcWdg@mail.gmail.com>
+	<20110527121941.1554d9af@gmail.com>
+	<BANLkTi=s15SVQTnHLdHMYxzgebwOGnua2Q@mail.gmail.com>
+Message-ID: <20110528225120.08299697@viettug.org>
+
+Hi,
+
+I told you all that I would reply last night (ICT time), but it's so hard for me to write about a project which was started many years ago. I must think so much today; and I am sorry for the belated response.
+
+On Fri, 27 May 2011 12:03:53 +0100
+Michele Mattioni <mattions at gmail.com> wrote:
+
+> Awesome,
+> 
+> just want to add in the loop Vojta, which designed this splash for
+> winefish and offered it a bunch of weeks ago.
+
+Excellent. I love this very sexy splash :) Thank you so much, Vojta.
+
+On Wed, May 25, 2011 at 10:41 PM, Markus Lunk <mlunk at web.de> wrote:
+
+> I stumbled over Bluefish again with a reference to Winefish.
+> Sadly, Winefish isn't actively developed anymore. 
+
+Yes Winefish isn't actively developed anymore :( I am being a bit busy, but the real reasons are
+
+* I lack passion. Since I finished my thesis in 2006 I have almost been doing nothing with TeX.
+ 
+* I had some difficulties when developing Winefish. In my last tries with Winefish development, I had at least three problems:
+
+  (1) Low performance when enabling TeX highlighting support (as far as I remember, Winefish turns off syntax highlighting by default.) The syntax of TeX is really complex, which led me to develop some strange patterns to get highlight support in Bluefish/Winefish. The side effect was a low performance of the editor. Though Winefish is still fast for many common tasks I was still annoyed and I thought that the problem couldn't be solved.
+
+  (2) Key binding support: I tried to implement Emacs-style key binding for Winefish, and I get some nice results. The feature appears only in the branch 'master' (http://github.com/winefish/) (aka 'trunk' when using SVN), and a full support for it requires so many works (converting all Winefish features to simple methods.)
+
+  (3) Code folding: Around the year 2006 many TeX editors were supporting code folding, but Winefish didn't :( And as I can see in the version "2.0.3" of Bluefish, code folding isn't supported as a default feature (or I miss something to configure it.) I considered "code folding" as *must* feature, I even thought of *manually code folding*, but I found it's so hard to implement. So I simply gave up :D
+
+> As you seem to be the only remaining developer, what do you think of
+> integrating Winefish into Bluefish? Bluefish with TeX - that
+> would be it. That way, Winefish could benefit by any changes
+> that Bluefish gets plus there was an integrated TeX editor.
+> You may also attract more developers to contribute to the
+> project than for a five year dead project.
+
+First, I'd like to thank you very much for the suggestion. This is not the first time. In the very first stages of Winefish, I also had some suggestions from Bluefish Team, and I always appreciate you and Bluefish Team.
+
+Second, let me talk about the primary purpose of Winefish: I intended to write a dedicated editor for TeX users, which be simple, powerful, clean and smart. Unfortunately, I almost fail; nowadays there are so many TeX editors with very attractive features (for example, TeXmaker and its friend xTeXmaker.) As I said, I then haven't much passion with Winefish.
+
+So what is my final opinion? I think an integration TeX + Bluefish is very nice. Such integration would help Bluefish daily users. (I would have agreed to integrate TeX feature into Bluefish.) I will give you all some helps (syntax highlight support, symbols, tools, toolbar support,...). After receiving your feedback I may start to look at Bluefish source code and make some changes. And I hope Michele also help.
+
+About the future version of Winefish, I have nothing to tell you now :( It's good if someone can take it over, but I strongly believe that Winefish almost reaches its end. Winefish needs to change its roadmap and/or its technical background. Or it should simply dead.
+
+Thank you again for all.
+
+Best regards,
+
+-- 
+Anh Ky Huynh @ ICT
+Registered Linux User #392115
+
+

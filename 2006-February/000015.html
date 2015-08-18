@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Winefish-devel] Re: Winefish 1.3.2.6(g)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/winefish-devel/2006-February/index.html" >
+   <LINK REL="made" HREF="mailto:winefish-devel%40lists.berlios.de?Subject=Re%3A%20%5BWinefish-devel%5D%20Re%3A%20Winefish%201.3.2.6%28g%29&In-Reply-To=%3CE4A63B33-3CF3-4410-8BB7-E5F57A5DA63E%40easyconnect.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000017.html">
+   <LINK REL="Next"  HREF="000016.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Winefish-devel] Re: Winefish 1.3.2.6(g)</H1>
+    <B>Mich&#232;le Garoche</B> 
+    <A HREF="mailto:winefish-devel%40lists.berlios.de?Subject=Re%3A%20%5BWinefish-devel%5D%20Re%3A%20Winefish%201.3.2.6%28g%29&In-Reply-To=%3CE4A63B33-3CF3-4410-8BB7-E5F57A5DA63E%40easyconnect.fr%3E"
+       TITLE="[Winefish-devel] Re: Winefish 1.3.2.6(g)">michele.garoche at easyconnect.fr
+       </A><BR>
+    <I>Tue Feb 14 09:33:27 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000017.html">[Winefish-devel] Winefish-1.3.2-RC1
+</A></li>
+        <LI>Next message: <A HREF="000016.html">[Winefish-devel] Re: Winefish 1.3.2.6(g)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Le 14 f&#233;vr. 2006 &#224; 03:17, kyanh a &#233;crit :
+
+&gt;<i> On Tuesday 14 February 2006 01:12, you wrote:
+</I>&gt;&gt;<i> Le 9 f&#233;vr. 2006 &#224; 03:42, <A HREF="https://lists.berlios.de/mailman/listinfo/winefish-devel">kyanh at o2.pl</A> a &#233;crit :
+</I>&gt;&gt;&gt;<i> Now  there's Winefish 1.3.2.6(g) that you may download here
+</I>&gt;&gt;&gt;<i> <A HREF="http://download.berlios.de/winefish/winefish-1.3.2.6g.tgz">http://download.berlios.de/winefish/winefish-1.3.2.6g.tgz</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> After much delay, due to long berlioz ftp access down, I've
+</I>&gt;&gt;<i> successfully downloaded winefish-1.3.2.6g.tgz today.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I've filled in three bugs reports on berlioz. Please, have a look at
+</I>&gt;&gt;<i> them.
+</I>&gt;<i> Thank you very much. I cannot repeat the bug which relates to  
+</I>&gt;<i> project file.
+</I>Answer in berlioz bugs.
+
+&gt;<i> For the Template, see Menu Edit/Find, Replace/Templates.
+</I>Oh, yes, sorry, forgot that. I'll add a note in Fink for accelerate  
+keys to be changed.
+
+
+&gt;<i> I update this in
+</I>&gt;<i> documentation. For the last one (brace finder) there may be a bug.  
+</I>&gt;<i> But the
+</I>&gt;<i> finder was almost reimplemented. Winefish 1.3.2-RC1 will be  
+</I>&gt;<i> released soon.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Then concerning the fr.po file, you should not change the copyright,
+</I>&gt;&gt;<i> it is copyrighted the translator, then the Free Software Foundation,
+</I>&gt;&gt;<i> which is sufficient to ensure that the file pertains to winefish, and
+</I>&gt;&gt;<i> could be transferred to any subsequent translator. Even less the
+</I>&gt;&gt;<i> language, the last translator, the language team.
+</I>&gt;&gt;<i>
+</I>&gt;<i> I am so sorry about that. I have opened it kbabel to check for  
+</I>&gt;<i> fuzzy messages.
+</I>&gt;<i> May kbabel change it?
+</I>Yes, that's the problem; kbabel is not good for it, it is good for  
+the translator to update his own po file, not for the programmer to  
+update the whole translation tree;
+Use gettext to do this. Then you could check if there is any fuzzy  
+message or untranslated one. Update your own translation, but not the  
+other ones. Send the new generated po files to the translators, they  
+will translate them if needed or not, that's up to them.
+For this to work the cvs or svn tree or a snapshoot corresponding to  
+the pre-release should be available to all translators.
+Personnally I don't need any po file, I know how to generate them and  
+update them, what I need is either a working svn/cvs tree or the  
+latest pre-release snapshot, because I will also be the Fink's  
+maintainer of the package, then I should be able to dive into the  
+code if needed.
+
+Here's the shell script I use to update the pot file and generate new  
+po files (that's for fr, but you could easily transform it for all po  
+files). It is the exact mirror of what happened when you compile the  
+package.
+
+Assuming the code tree is located under $HOME and whole code is  
+under, say winefish-1.3.2.6, it becomes:
+
+#! /bin/sh -ev
+cd ${HOME}/winefish-1.3.2.6/po
+xgettext --from-code=UTF-8 --default-domain=winefish --keyword=_ -- 
+keyword=N_ ../src/*.c
+echo &quot;updating fr.po&quot;
+msgmerge -v -o fr-patched.po fr.po winefish.po
+
+Put it in  a text file, give it executable permissions and run it, it  
+will generate a new pot file under po/winefish.po and update the  
+French po file under fr-patched.po according to the change in the  
+tree. If the message in the terminal is ok, that is no fuzzy, no  
+untranslated, you can safely delete it. If not delete the old one  
+(fr.po) and rename fr-patched.po to fr.po.
+
+The below version is for all po files, but is more radical in that  
+sense that it renames also the po files on the fly. I find it less  
+convenient some time:
+
+#! /bin/sh -ev
+cd ${HOME}/bluefishcvs/winefish-1.3.2.6/po
+
+echo &quot;updating pot file&quot;
+xgettext --from-code=UTF-8 --default-domain=winefish --keyword=_ -- 
+keyword=N_ ../src/*.c
+
+echo &quot;updating po files&quot;
+for x in `ls *.po`; do
+echo &quot;===========&quot;
+echo &quot;updating $x&quot;
+y=`basename $x .po`
+if [ $x != &quot;winefish.po&quot; ]
+then
+msgmerge -v -o $y-patched.po $x winefish.po
+else
+echo &quot;Nothing to do&quot;
+fi
+done
+
+echo &quot;renaming new po files&quot;
+for x in `ls *-patched.po`; do
+echo &quot;===========&quot;
+echo &quot;renaming $x&quot;
+mv $x `echo $x | sed -e &quot;s/-patched//&quot;`
+done
+
+And generally speaking, when updating the po file, the translator  
+should change the PO-Revision-Date (not forgetting to change the  
+summer/winter delay if appropriate), and Project-Id-Version (it  
+should be normally nameoftheproject-versionnumberoftherelease). It is  
+a good way to be sure the file is uptodate and matches the release  
+version.
+
+
+&gt;<i> Anyway, i use the new one...
+</I>By the way, you've done the same for it.po. I've taken the liberty to  
+update it (changing a bit the headers to reflect the real situation)  
+and changing the string for French translator (should be ok, at least  
+if my Italian studies' memory is not treacherous).
+
+Hope Daniele does not mind.
+
+&gt;<i>
+</I>&gt;&gt;<i> Then I wonder the utility of the svn access, since it does not
+</I>&gt;&gt;<i> reflect the last state of winefish. Could you work on it, so that we
+</I>&gt;&gt;<i> can ensure we work on the same source code?
+</I>&gt;<i>
+</I>&gt;<i> I have to work offline. I have no  line here event in a modern  
+</I>&gt;<i> city. I moved
+</I>&gt;<i> the svn root to my local computer. I rarely connect to internet  
+</I>&gt;<i> using my
+</I>&gt;<i> desktnote. (About once a week.) So let svn access overthere die;(
+</I>Oh, that is sad. Well, as long as you could put say once a week, a  
+new snapshot, I think it will be workeable.
+
+I've also corrected misspelling in doc and changed some parts related  
+to the way to change autotext and words. Hope you will not drop the  
+autoX panel in preferences, since it is a very good way to modify  
+parts without having to relaunch winefish.
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: doc.patch.tgz
+Type: application/octet-stream
+Size: 1548 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060214/7074b741/attachment.obj">https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060214/7074b741/attachment.obj</A>&gt;
+-------------- next part --------------
+
+By the way, I'm unable to produce the html file from the Makefile.  
+TIPS should be also reflect the changes for autotext and words parts.
+
+Now, I will test the new version. Hopefully I can do it fully this  
+morning, as I'll not be at home this afternoon (St Valentine's day by  
+us :-).
+
+Amicalement,
+Mich&#232;le
+&lt;<A HREF="http://micmacfr.homeunix.org">http://micmacfr.homeunix.org</A>&gt;
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000017.html">[Winefish-devel] Winefish-1.3.2-RC1
+</A></li>
+	<LI>Next message: <A HREF="000016.html">[Winefish-devel] Re: Winefish 1.3.2.6(g)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/winefish-devel">More information about the Winefish-devel
+mailing list</a><br>
+</body></html>

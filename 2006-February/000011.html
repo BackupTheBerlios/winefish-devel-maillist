@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Winefish-devel] Re: Howto handle Invalid UTF-8 string?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/winefish-devel/2006-February/index.html" >
+   <LINK REL="made" HREF="mailto:winefish-devel%40lists.berlios.de?Subject=Re%3A%20%5BWinefish-devel%5D%20Re%3A%20Howto%20handle%20Invalid%20UTF-8%20string%3F&In-Reply-To=%3C43EB102D.2050903%40pop.com.br%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000009.html">
+   <LINK REL="Next"  HREF="000014.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Winefish-devel] Re: Howto handle Invalid UTF-8 string?</H1>
+    <B>Claudio Polegato Junior</B> 
+    <A HREF="mailto:winefish-devel%40lists.berlios.de?Subject=Re%3A%20%5BWinefish-devel%5D%20Re%3A%20Howto%20handle%20Invalid%20UTF-8%20string%3F&In-Reply-To=%3C43EB102D.2050903%40pop.com.br%3E"
+       TITLE="[Winefish-devel] Re: Howto handle Invalid UTF-8 string?">cpolegatojr_lsts at pop.com.br
+       </A><BR>
+    <I>Thu Feb  9 10:49:33 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000009.html">[Winefish-devel] Howto handle Invalid UTF-8 string?
+</A></li>
+        <LI>Next message: <A HREF="000014.html">[Winefish-devel] Winefish-1.3.2-RC1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#11">[ date ]</a>
+              <a href="thread.html#11">[ thread ]</a>
+              <a href="subject.html#11">[ subject ]</a>
+              <a href="author.html#11">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE><A HREF="https://lists.berlios.de/mailman/listinfo/winefish-devel">kyanh at o2.pl</A> escreveu:
+&gt;<i> Hi all,
+</I>&gt;<i> &gt;From my program (winefish), some child processes are called and
+</I>&gt;<i> theirs output will be captured. The IO_channel was used for this
+</I>&gt;<i> purpose.
+</I>&gt;<i> The problem is that some children may procedure invalid UTF8 strings
+</I>&gt;<i> (for example, when LANG=fr_FR and `cat' returns 1 (file not found)).
+</I>&gt;<i> This causes empty output in gtk_tree_view!!  ( I tried to use NULL
+</I>&gt;<i> encoding (for IO_channel) but failed )
+</I>&gt;<i>
+</I>&gt;<i> Question: how to handle invalid UTF8 string?
+</I>&gt;<i>   
+</I>Hi,
+
+You can throw g_locale_conv* and by iconv command line.
+
+-- 
+
+[]'s
+
+Claudio Polegato Junior
+
+Um peregrino de Problemas; Um pergaminho de Solu&#231;&#245;es.
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000009.html">[Winefish-devel] Howto handle Invalid UTF-8 string?
+</A></li>
+	<LI>Next message: <A HREF="000014.html">[Winefish-devel] Winefish-1.3.2-RC1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#11">[ date ]</a>
+              <a href="thread.html#11">[ thread ]</a>
+              <a href="subject.html#11">[ subject ]</a>
+              <a href="author.html#11">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/winefish-devel">More information about the Winefish-devel
+mailing list</a><br>
+</body></html>

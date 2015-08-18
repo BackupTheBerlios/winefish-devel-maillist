@@ -1,0 +1,27 @@
+From michele.garoche at easyconnect.fr  Fri Mar 10 23:41:39 2006
+From: michele.garoche at easyconnect.fr (=?ISO-8859-1?Q?Mich=E8le_Garoche?=)
+Date: Fri, 10 Mar 2006 23:41:39 +0100
+Subject: [Winefish-devel] Mailbox too small for patch
+Message-ID: <BCD3D6BA-5ED6-43FD-88FF-78FD55450065@easyconnect.fr>
+
+The mailbox is limited to 40 kb, which is not sufficient for po file.
+
+Could you please increase the size of the mailbox?
+
+Thanks in advance,
+
+Cheers,
+Mich?le
+<http://micmacfr.homeunix.org>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 36C471DED4B09EEB30A0281F2608DB2FE6F9E147.gpgkey
+Type: application/octet-stream
+Size: 1744 bytes
+Desc: not available
+URL: <https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060310/f7d63123/attachment.obj>
+-------------- next part --------------
+
+
+

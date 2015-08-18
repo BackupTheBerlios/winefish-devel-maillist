@@ -1,0 +1,28 @@
+From bogus@does.not.exist.com  Wed Mar 14 16:35:07 2012
+From: bogus@does.not.exist.com ()
+Date: Wed, 14 Mar 2012 15:35:07 -0000
+Subject: No subject
+Message-ID: <mailman.0.1331739306.14594.winefish-devel@lists.berlios.de>
+
+theirs output will be captured. The IO_channel was used for this
+purpose.
+
+The problem is that some children may procedure invalid UTF8 strings
+(for example, when LANG=fr_FR and `cat' returns 1 (file not found)).
+This causes empty output in gtk_tree_view!!  ( I tried to use NULL
+encoding (for IO_channel) but failed )
+
+Question: how to handle invalid UTF8 string?
+
+Thank you for replies.
+
+Regards,
+
+kyanh
+
+PS:
+this topic is related to BUG#82 (see BUGS) of Winefish,
+http://winefish.berlios.de/
+
+
+

@@ -1,0 +1,222 @@
+From daniel.leidert.spam at gmx.net  Wed Aug 31 17:54:29 2005
+From: daniel.leidert.spam at gmx.net (Daniel Leidert)
+Date: Wed, 31 Aug 2005 17:54:29 +0200
+Subject: [Winefish-devel] Re: Bug Report: winefish: Winefish crashes using dvips
+In-Reply-To: <1125170093.5979.102.camel@localhost.localdomain>
+References: <1125170093.5979.102.camel@localhost.localdomain>
+Message-ID: <1125503669.4178.0.camel@localhost>
+
+Sent a copy of this mail to winefish-devel mailing list.
+
+Am Samstag, den 27.08.2005, 15:14 -0400 schrieb Carlos Moffat:
+
+> I couldn't make reportbug send you the bug report below.
+
+Did you observe any problems related with my mail-address or is it a
+local problem on your system?
+
+> Sorry. Here it is:
+
+[..]
+> Package: winefish
+> Version: 1.3.2.5-0dl0
+> Severity: normal
+> 
+> this bug is not completely reproducible, for does happens very ofteni
+> (say 8 out of 10 times).
+> I've only noticed it when using dvips. Winefish will simply crash. The
+> only output from a command window will be something like:
+> 
+> (winefish:9734): GLib-WARNING **: Invalid file descriptor.
+> 
+> (actually, as I write this, same thing happens with dvipdfm).
+
+Always with the same file or independent from the file but reproducible
+with dvips? It would be very useful, if you could make a backtrace. I
+will try to reproduce it here too. To make a backtrace, please follow
+the instructions at the bluefish wiki (Winefish is a Bluefish fork):
+
+http://bfwiki.tellefsen.net/index.php?pagename=DebuggingBluefish
+
+Instead of typing 'bt' type 'bt full'. This is more useful.
+
+> -- System Information:
+> Debian Release: testing/unstable
+>   APT prefers unstable
+>   APT policy: (500, 'unstable')
+> Architecture: i386 (i686)
+> Shell:  /bin/sh linked to /bin/bash
+> Kernel: Linux 2.6.12.3.073105
+> Locale: LANG=C, LC_CTYPE=C (charmap=ANSI_X3.4-1968)
+> 
+> Versions of packages winefish depends on:
+> ii  gv                        1:3.6.1-12     PostScript and PDF viewer for X
+> ii  libart-2.0-2              2.3.17-1       Library of functions for 2D graphi
+> ii  libaspell15               0.60.3-5       GNU Aspell spell-checker runtime l
+> ii  libatk1.0-0               1.10.1-2       The ATK accessibility toolkit
+> ii  libbonobo2-0              2.10.0-1       Bonobo CORBA interfaces library
+> ii  libbonoboui2-0            2.10.0-1       The Bonobo UI library
+> ii  libc6                     2.3.5-4        GNU C Library: Shared libraries an
+> ii  libgconf2-4               2.10.1-1       GNOME configuration database syste
+> ii  libglib2.0-0              2.8.0-1        The GLib library of C routines
+> ii  libgnome2-0               2.10.1-1       The GNOME 2 library - runtime file
+> ii  libgnomecanvas2-0         2.10.2-2       A powerful object-oriented display
+> ii  libgnomeui-0              2.10.1-1       The GNOME 2 libraries (User Interf
+> ii  libgnomevfs2-0            2.10.1-5       The GNOME virtual file-system libr
+> ii  libgtk2.0-0               2.6.9-1        The GTK+ graphical user interface 
+> ii  libice6                   6.8.2.dfsg.1-5 Inter-Client Exchange library
+> ii  liborbit2                 1:2.12.2-3     libraries for ORBit2 - a CORBA ORB
+> ii  libpango1.0-0             1.8.2-1        Layout and rendering of internatio
+> ii  libpcre3                  5.0-1.1        Perl 5 Compatible Regular Expressi
+> ii  libpopt0                  1.7-5          lib for parsing cmdline parameters
+> ii  libsm6                    6.8.2.dfsg.1-5 X Window System Session Management
+> ii  libxml2                   2.6.20-1       GNOME XML library
+> ii  tetex-bin [latex]         2.0.2-31       The teTeX binary files
+> ii  xlibs                     6.8.2.dfsg.1-5 X Window System client libraries m
+> ii  xpdf                      3.01-1         Portable Document Format (PDF) sui
+> ii  zlib1g                    1:1.2.3-3      compression library - runtime
+> 
+> winefish recommends no packages.
+> 
+> -- no debconf information
+> 
+
+
+Regards, Daniel
+
+
+
+From kyanh at o2.pl  Wed Aug 31 18:32:09 2005
+From: kyanh at o2.pl (kyanh)
+Date: Wed, 31 Aug 2005 23:32:09 +0700
+Subject: [Winefish-devel] Re: Bug Report: winefish: Winefish crashes using dvips
+In-Reply-To: <1125503669.4178.0.camel@localhost>
+References: <1125170093.5979.102.camel@localhost.localdomain> <1125503669.4178.0.camel@localhost>
+Message-ID: <200508312332.10053.kyanh@o2.pl>
+
+On Wednesday 31 August 2005 22:54, Daniel Leidert wrote:
+> Sent a copy of this mail to winefish-devel mailing list.
+>
+> Am Samstag, den 27.08.2005, 15:14 -0400 schrieb Carlos Moffat:
+> > I couldn't make reportbug send you the bug report below.
+>
+> Did you observe any problems related with my mail-address or is it a
+> local problem on your system?
+>
+> > Sorry. Here it is:
+>
+> [..]
+>
+> > Package: winefish
+> > Version: 1.3.2.5-0dl0
+> > Severity: normal
+> >
+> > this bug is not completely reproducible, for does happens very ofteni
+> > (say 8 out of 10 times).
+> > I've only noticed it when using dvips. Winefish will simply crash. The
+> > only output from a command window will be something like:
+> >
+> > (winefish:9734): GLib-WARNING **: Invalid file descriptor.
+> >
+> > (actually, as I write this, same thing happens with dvipdfm).
+>
+
+I should reimplement the way winefish calls another the tools.
+
+Thank you for report!
+
+Regards,
+
+
+-- 
+kyanh
+
+
+From daniel.leidert.spam at gmx.net  Wed Aug 31 14:19:10 2005
+From: daniel.leidert.spam at gmx.net (Daniel Leidert)
+Date: Wed, 31 Aug 2005 14:19:10 +0200
+Subject: [Winefish-devel] Re: Bug Report: winefish: Winefish crashes using dvips
+In-Reply-To: <1125170093.5979.102.camel@localhost.localdomain>
+References: <1125170093.5979.102.camel@localhost.localdomain>
+Message-ID: <1125490750.11873.25.camel@localhost>
+
+Sent a copy of this mail to winefish-devel mailing list.
+
+Am Samstag, den 27.08.2005, 15:14 -0400 schrieb Carlos Moffat:
+
+> I couldn't make reportbug send you the bug report below.
+
+Did you observe any problems related with my mail-address or is it a
+local problem on your system?
+
+> Sorry. Here it is:
+
+[..]
+> Package: winefish
+> Version: 1.3.2.5-0dl0
+> Severity: normal
+> 
+> this bug is not completely reproducible, for does happens very ofteni
+> (say 8 out of 10 times).
+> I've only noticed it when using dvips. Winefish will simply crash. The
+> only output from a command window will be something like:
+> 
+> (winefish:9734): GLib-WARNING **: Invalid file descriptor.
+> 
+> (actually, as I write this, same thing happens with dvipdfm).
+
+Always with the same file or independent from the file but reproducible
+with dvips? It would be very useful, if you could make a backtrace. I
+will try to reproduce it here too. To make a backtrace, please follow
+the instructions at the bluefish wiki (Winefish is a Bluefish fork):
+
+http://bfwiki.tellefsen.net/index.php?pagename=DebuggingBluefish
+
+Instead of typing 'bt' type 'bt full'. This is more useful.
+
+> -- System Information:
+> Debian Release: testing/unstable
+>   APT prefers unstable
+>   APT policy: (500, 'unstable')
+> Architecture: i386 (i686)
+> Shell:  /bin/sh linked to /bin/bash
+> Kernel: Linux 2.6.12.3.073105
+> Locale: LANG=C, LC_CTYPE=C (charmap=ANSI_X3.4-1968)
+> 
+> Versions of packages winefish depends on:
+> ii  gv                        1:3.6.1-12     PostScript and PDF viewer for X
+> ii  libart-2.0-2              2.3.17-1       Library of functions for 2D graphi
+> ii  libaspell15               0.60.3-5       GNU Aspell spell-checker runtime l
+> ii  libatk1.0-0               1.10.1-2       The ATK accessibility toolkit
+> ii  libbonobo2-0              2.10.0-1       Bonobo CORBA interfaces library
+> ii  libbonoboui2-0            2.10.0-1       The Bonobo UI library
+> ii  libc6                     2.3.5-4        GNU C Library: Shared libraries an
+> ii  libgconf2-4               2.10.1-1       GNOME configuration database syste
+> ii  libglib2.0-0              2.8.0-1        The GLib library of C routines
+> ii  libgnome2-0               2.10.1-1       The GNOME 2 library - runtime file
+> ii  libgnomecanvas2-0         2.10.2-2       A powerful object-oriented display
+> ii  libgnomeui-0              2.10.1-1       The GNOME 2 libraries (User Interf
+> ii  libgnomevfs2-0            2.10.1-5       The GNOME virtual file-system libr
+> ii  libgtk2.0-0               2.6.9-1        The GTK+ graphical user interface 
+> ii  libice6                   6.8.2.dfsg.1-5 Inter-Client Exchange library
+> ii  liborbit2                 1:2.12.2-3     libraries for ORBit2 - a CORBA ORB
+> ii  libpango1.0-0             1.8.2-1        Layout and rendering of internatio
+> ii  libpcre3                  5.0-1.1        Perl 5 Compatible Regular Expressi
+> ii  libpopt0                  1.7-5          lib for parsing cmdline parameters
+> ii  libsm6                    6.8.2.dfsg.1-5 X Window System Session Management
+> ii  libxml2                   2.6.20-1       GNOME XML library
+> ii  tetex-bin [latex]         2.0.2-31       The teTeX binary files
+> ii  xlibs                     6.8.2.dfsg.1-5 X Window System client libraries m
+> ii  xpdf                      3.01-1         Portable Document Format (PDF) sui
+> ii  zlib1g                    1:1.2.3-3      compression library - runtime
+> 
+> winefish recommends no packages.
+> 
+> -- no debconf information
+> 
+
+
+Regards, Daniel
+
+
+

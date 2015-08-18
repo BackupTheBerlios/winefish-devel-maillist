@@ -1,0 +1,232 @@
+From kyanh at o2.pl  Sat Apr  1 02:34:29 2006
+From: kyanh at o2.pl (kyanh)
+Date: Sat, 01 Apr 2006 07:34:29 +0700
+Subject: [Winefish-devel] winefish-1.3.2: patch for gtk+_2.4 users
+Message-ID: <442DCA95.4050108@o2.pl>
+
+Hi,
+
+Users of gtk+ version <2.6 cannot compile winefish-1.3.2. The patch 
+fixes this. Download: 
+http://prdownload.berlios.de/winefish/patch_for_gtk+_24_users.tgz
+
+So sorry:(
+
+kyanh
+
+
+
+From daniel.leidert.spam at gmx.net  Fri Apr 14 16:34:59 2006
+From: daniel.leidert.spam at gmx.net (Daniel Leidert)
+Date: Fri, 14 Apr 2006 16:34:59 +0200
+Subject: [Winefish-devel] winefish: manpage issues
+Message-ID: <1145025299.10010.41.camel@localhost>
+
+Hello Kyanh,
+
+I need a few information about the manpage and I found also a few
+issues. First the information I need for making the Debian package: I'm
+currently preparing an official Debian package. Therefor I must follow
+stricter rules when I write down the copyright information for the
+package. So I need to know, which copyright and license the manpage is?
+Is it copyrighted by Mich?le Garoche? Is it licensed under the GPL?
+Could you please add this information at least as head-comments in the
+manpage roff source? Just add at the top:
+
+.\" Author(s): Mich?le Garoche (...)
+.\" Copyright: Copyright (C) 2006 ...
+.\"   License: ... small license info ...
+
+Then the issues I found (I've attached the patch againast 1.3.3 and the
+resulting manpage):
+
+* header information:
+- Version is already 1.3.3 - two possibilities: (a) use the date (of
+last change) instead of the version number there, which is more common
+(there you could use an SVN keyword for the date instead), or (b)
+process the file via autoconf and automatically add the real version
+number and package name (a patch can be submitted if wanted)
+- "Winefish" should be all-uppercase
+- instead of "kyanh" you should use '$PACKAGE $VERSION' (both could be
+added automatically during autoconf run)
+- this is more common usage of the headers
+
+* SYNTAX
+- wrong section title - following the man-page howto the section title
+is SYNOPSIS
+- bold/italic usage is not correct - options, commands, ... are bold;
+parameters, file-names and replaceable stuff is italic
+
+* DESCRIPTION
+- pdflatex, latex, PCRE missed manpage reference
+- mpved homepage and mailing list information here (and made them
+lickable) - see also the notes at AUTHORS
+
+* OPTIONS
+- same bold/italic "issues"
+- a few improvements (which IMHO look better) are possible - see the
+attached patch
+
+* FILES
+- ditto: file-names are italic elements
+
+* EXAMPLES
+- ditto - the command is bold, not the comment (only a title would be
+bold)
+
+* AUTHORS
+- small typo in Mich?les name
+- small typo in "It may be used by other distribution." (should be
+plural)
+- all the homepage, mailing-list and other documentation information do
+not belong to the AUTHORS section - instead put the homepage and list
+info into DESCRIPTION and other documentation belongs to SEE ALSO
+- the location for winefish.html seems incorrect, it should be
+$prefix/share/doc/winefish/winefish.html. AFAIK no packages
+documentation is directly put into $prefix/share/doc
+- $prefix could be replaced by: moving winefish.1 to winefish.1.in,
+replace '$prefix' with '@prefix@' and then process this file during
+configure run - then prefix is replaced with the real value (same can
+automatically add the PACKAGE and VERSION variable)
+
+* SEE ALSO
+- should definitely be added to reference all manpages for helper tools,
+basics for LaTeX and other documentation - the current list may be
+incomplete - to be honest: referencing makes more sense, if the command
+lines are changeable -> I did _not_ test, if you hardcode the commands
+
+Regards, Daniel
+-------------- next part --------------
+.\" Winefish manpage
+.\"
+.\" Customization by Daniel Leidert for the Debian distribution.
+.\"
+.TH "WINEFISH" "1" "2006-04-14" "winefish 1.3.3" "Winefish Documentation"
+
+.SH "NAME"
+.LP 
+\fBwinefish\fR \- LaTeX editor
+
+.SH "SYNOPSIS"
+.LP 
+\fBwinefish [OPTION...] \fIFILENAME\fR
+
+.SH "DESCRIPTION"
+.LP 
+\fBwinefish\fR is a LaTeX editor based on bluefish. It features:
+.LP 
+\- autotext support
+.LP 
+\- autocompletion support
+.LP 
+\- command collector
+.LP 
+\- multiple encodings support
+.LP 
+\- custom menu to define your own tags, sets of code, and dialogs
+.LP 
+\- customizable syntax highlighting based on \fBPCRE\fR(3)
+.LP 
+\- user customizable integration of \fBlatex\fR(1), \fBpdflatex\fR(1),...
+.LP 
+\- custom search and replace pattern support for the custom menu
+.LP 
+\- wizards for startup, tables, list and others
+.TP
+\fBHomepage\fR
+\fI\%http://winefish.berlios.de\fR
+.br
+\fI\%http://winefish.viettug.org\fR
+.br
+\fI\%http://winefish.sourceforge.net\fR
+.TP
+\fBMailing lists\fR
+\fI\%winefish\-devel at lists.berlios.de\fR (development)
+.br
+\fI\%winefish\-users at lists.berlios.de\fR (users)
+
+.SH "OPTIONS"
+.PP
+\fBwinefish\fR currently supports the following options (in alphabetical
+order):
+.TP 
+\fB\-l \fILINENUMBER\fR
+Set the line number the file will be opened at.
+.TP 
+\fB\-n { \fI0\fB\ | \fI1\fB }\fR
+Open a new window (\fI1\fR) or not (\fI0\fR).
+.TP 
+\fB\-p \fIPROJECTFILE\fR
+Open the specified project file.
+.TP 
+\fB\-s\fR
+Skip root check.
+.TP 
+\fB\-h\fR
+Show this help screen.
+.TP 
+\fB\-v\fR
+Show the current version of \fBwinefish\fR.
+
+.SH "FILES"
+.LP 
+Some configuration files are loaded into \fI$HOME/.winefish\fR:
+.TP 
+\fI$HOME/.winefish/autotext\fR 
+Store shorcuts for text, i.e. LaTeX blocks
+.IP 
+You may edit it from the autotext panel in the preferences window
+.TP 
+\fI$HOME/.winefish/custom_menu\fR 
+Define the contents of the custom menu
+.IP 
+You may edit it from the Edit custom menu item
+.TP 
+\fI$HOME/.winefish/hightlighting\fR 
+Define the highlighting patterns for some languages
+.IP 
+You may edit it from the highlighting panel in the preferences window
+.TP 
+\fI$HOME/.winefish/rcfile\fR 
+Store most of the other settings defined in the preferences window
+.IP 
+You may modify the settings in the various panels of the preferences window
+.TP 
+\fI$HOME/.winefish/words\fR 
+Store a list of tags for autocompletion
+.IP 
+You may add tags from the autoX panel in the preferences window
+
+.SH "EXAMPLES"
+.TP 
+Starting \fBwinefish\fR from the command line:
+\fBwinefish\fR
+.TP 
+Opening a file foo in a new window at line 100:
+\fBwinefish \-n 1 \-l 100 \fIfoo\fR
+.TP 
+Opening a project foo in the current window:
+\fBwinefish \-n 0 \-p \fIfoo.wfproject\fR
+
+.SH "SEE ALSO"
+.LP
+\fBlatex\fR(1), \fBpdflatex\fR(1), \fBdvips\fR(1), \fBdvipdfm\fR(1),
+\fBxdvi\fR(1), \fBxpdf\fR(1), \fBgv\fR(1),
+\fI$prefix/share/doc/winefish/winefish.html\fR
+
+.SH "AUTHORS"
+.LP 
+This manual page was written by Mich??le Garoche
+<michele.garoche at easyconnect.fr> for the Fink distribution
+as the original program does not have a manual page. But it may
+be used by other distributions.
+.LP
+$LastChangedBy: kyanh $
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: winefish_man_patch.diff
+Type: text/x-patch
+Size: 4754 bytes
+Desc: not available
+URL: <https://lists.berlios.de/mailman/private/winefish-devel/attachments/20060414/8bff79f9/attachment.bin>
+

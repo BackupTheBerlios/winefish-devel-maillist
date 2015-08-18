@@ -1,0 +1,22 @@
+From mattions at gmail.com  Sun Jun  6 12:23:07 2010
+From: mattions at gmail.com (Michele Mattioni)
+Date: Sun, 6 Jun 2010 11:23:07 +0100
+Subject: [Winefish-devel] Porting winefish to bluefish 2.0
+Message-ID: <AANLkTimxLVxgXNxkX2d9KVhGniV_JB2MeiGE1vmuSnZ8@mail.gmail.com>
+
+Hi list,
+
+I've just discovered that bluefish editor has been released in the version 2.0
+http://bluefish.openoffice.nl/
+
+I think the most interesting fact, from a winefish point of view, is
+the support of libenchant[1] with a better spell checking ability
+
+Is there any plan to port winefish to bluefish 2.0?
+
+[1] http://www.abisource.com/projects/enchant/
+
+Regards,
+Michele.
+
+
